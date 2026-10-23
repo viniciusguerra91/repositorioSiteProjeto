@@ -18,8 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      menuResponsivo.setAttribute("aria-expanded", "false");
+      if (navMenu) {
+        navMenu.classList.remove("active");
+      }
+
+      if (menuResponsivo) {
+        menuResponsivo.setAttribute("aria-expanded", "false");
+      }
     });
   });
 
@@ -144,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Validar se estiver tudo correto
       if (isValid) {
         clearErro();
-        showToast("Formulário validado com sucesso!");
+        showToast("Mensagem enviada com sucesso!");
         contatoForm.reset();
       }
     });
